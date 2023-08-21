@@ -88,8 +88,12 @@
 </style>
 <body>
 <nav>
-  <a href="/"><img src="imgs/gosim_logo.png"></a>
-  <div class="log_box">
+  <img src="imgs/gosim_logo.png">
+  <div class="log_box" th:if="${is_login}" >
+    <span th:text="${name}"></span> 님 &nbsp <a th:href="@{/logout}">로그아웃</a>
+  </div>
+
+  <div class="log_box" th:if="${not_login}">
     <button id="log_btn"><a href="/login">로그인</a></button>
     <button id="join_btn"><a href="/join">회원가입</a></button>
   </div>

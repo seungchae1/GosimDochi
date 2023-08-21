@@ -22,7 +22,7 @@ public class daoImpl implements dao{
 
     @Override
     public void insert_post(Post p) {
-        String sql = "insert into post_tbl values(post_seq.NEXTVAL,?,?,?,to_date(sysdate,'YYYY-MM-DD HH24:mi:SS'),0)";
+        String sql = "insert into post_tbl values(post_seq.NEXTVAL,?,?,?,to_date(sysdate,'YYYY-MM-DD'),0)";
         jdbc.update(sql, p.getUser_id(),p.getTitle(), p.getContent());
     }
 
@@ -49,7 +49,7 @@ public class daoImpl implements dao{
 
     @Override
     public List<Post> select_post() {
-        String sql = "select * from post_tbl";
+        String sql = "select * from post_tbl order by no";
         return jdbc.query(sql, new BeanPropertyRowMapper<>(Post.class));
     }
 
@@ -60,7 +60,8 @@ public class daoImpl implements dao{
 
     @Override
     public Post select_post_One(int id) {
-        return null;
+        String sql = "select * from post_tbl where no="+id;
+        return jdbc.queryForObject(sql,new BeanPropertyRowMapper<>(Post.class));
     }
 
     @Override

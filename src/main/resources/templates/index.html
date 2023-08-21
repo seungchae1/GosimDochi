@@ -81,6 +81,7 @@
     td{
         height: 50px;
         border-top: 2px solid #D9D9D9;
+        cursor: pointer;
     }
     .serach_box>form>*{
         border: 2px solid black;
@@ -100,6 +101,10 @@
         padding-left:15%;
         margin-top: 50px;
     }
+    body{
+        margin-bottom:20px;
+    }
+
 
 </style>
 <body>
@@ -137,7 +142,7 @@
         <th>조회수</th>
         <th></th>
     </tr>
-    <tr class="td_tbl" th:each="p : ${p_list}" >
+    <tr class="td_tbl" th:each="p : ${p_list}" th:onclick="|location.href='@{'/v_post/'+${p.no}}'|">
         <td th:text="${p.no}"></td>
         <td th:text="${p.user_id}"></td>
         <td th:text="${p.title}"></td>

@@ -88,8 +88,10 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @GetMapping("/v_post")
-    public String v_post(){
+    @GetMapping("/v_post/{no}")
+    public String v_post(@PathVariable("no") int no, Model model){
+        Post p = s.select_post_One(no);
+        model.addAttribute("post",p);
         return "post_view";
     }
 

@@ -85,13 +85,12 @@
     <button id="join_btn"><a href="/join">회원가입</a></button>
   </div>
 </nav>
-<div class="wrap_div">
-  <h2>게시글 제목</h2>
-  <h4>작성자</h4>
-  <h4 style="text-align: right; color: #A4A4A4;">2023/08/19 <p>
-    <button><a >신고하기</a></button></h4>
-  <div class="content_div">
-    test내용 어쩌구저쩌구..........
+<div class="wrap_div" th:object="${post}">
+  <h2 th:text="*{title}"></h2>
+  <h4 th:text="*{user_id}"></h4>
+  <h4 style="text-align: right; color: #A4A4A4;" th:text="*{post_date}"><p>
+    <button><a href="#">신고하기</a></button></h4>
+  <div class="content_div" th:text="*{content}">
   </div>
   <h4>댓글</h4>
   <form action="" method="post">
