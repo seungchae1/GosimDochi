@@ -22,7 +22,8 @@ public class daoImpl implements dao{
 
     @Override
     public void insert_post(Post p) {
-
+        String sql = "insert into post_tbl values(post_seq.NEXTVAL,?,?,?,to_date(sysdate,'YYYY-MM-DD HH24:mi:SS'),0)";
+        jdbc.update(sql, p.getUser_id(),p.getTitle(), p.getContent());
     }
 
     @Override

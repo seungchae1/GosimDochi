@@ -1,6 +1,7 @@
 package kr.hs.study.GosimDochi.controller;
 
 import kr.hs.study.GosimDochi.DTO.Myuser;
+import kr.hs.study.GosimDochi.DTO.Post;
 import kr.hs.study.GosimDochi.Service.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -26,7 +33,7 @@ public class HomeController {
             model.addAttribute("is_login", true);
             model.addAttribute("name", user.getName());
         }
-
+        model.addAttribute("p_list",s.select_post());
         return "index";
     }
     @GetMapping("/login")
@@ -70,6 +77,20 @@ public class HomeController {
     @GetMapping("/write_post")
     public String w_post(){
         return "post_form";
+    }
+    @PostMapping("/post_re")
+    public String post_re(@RequestParam("title") String title, @RequestParam("content") String content){
+        Post post = new Post();
+        post.setTitle(title);
+        post.setContent(content);
+        post.setUser_id(user.getId());
+        s.insert_post(post);
+        return "redirect:/";
+    }
+
+    @GetMapping("/v_post")
+    public String v_post(){
+        return "post_view";
     }
 
 }

@@ -97,7 +97,7 @@
         color: white;
     }
     .w_post_div{
-        margin-left:230px;
+        padding-left:15%;
         margin-top: 50px;
     }
 
@@ -137,7 +137,7 @@
         <th>조회수</th>
         <th></th>
     </tr>
-    <tr class="td_tbl" th:each="p : ${p_list}">
+    <tr class="td_tbl" th:each="p : ${p_list}" >
         <td th:text="${p.no}"></td>
         <td th:text="${p.user_id}"></td>
         <td th:text="${p.title}"></td>

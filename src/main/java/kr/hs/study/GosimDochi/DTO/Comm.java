@@ -8,5 +8,5 @@ public class Comm {
     int post_no;
     String user_id;
     String content;
-    int comm_date;
+    String comm_date;
 }
