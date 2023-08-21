@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<style>
+    html{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    nav{
+        width: 100%;
+        background-image: url("imgs/nav.png");
+        background-size: contain;
+        z-index: 10;
+    }
+    nav>a>img{
+        width: 130px;
+        margin-left: 50px;
+    }
+    a{
+        color: #000;
+        text-decoration: none;
+    }
+    .log_box{
+        float: right;
+        transform: translate(0, 15%);
+        margin-right: 50px;
+    }
+    #log_btn{
+        border: 2px solid #9DD5BA;
+        background-color: white;
+        border-radius: 7px;
+        width: 76px;
+        height: 35px;
+    }
+    #join_btn{
+        border: 2px solid #9DD5BA;
+        background-color: #9DD5BA;
+        border-radius: 7px;
+        width: 76px;
+        height: 35px;
+    }
+    #join_btn>a{
+        color: white;
+    }
+    h2{
+        margin-top: 80px;
+        text-align: center;
+    }
+    form{
+        margin-top: 60px;
+        text-align: center;
+    }
+    .form_wrap{
+        width: 650px;
+        height: 500px;
+        margin: auto;
+        text-align: center;
+        background-color: rgba(139, 220, 181, 0.08);
+        border: 2px solid #9DD5BA;
+        border-radius: 7px;
+    }
+    input{
+        height: 30px;
+        border: 2px solid #9DD5BA;
+        border-radius: 7px;
+    }
+    .input_t{
+        width: 200px;
+        text-align: left;
+        margin-right: 80px;
+    }
+    .form_div{
+        transform: translate(0,22%);
+    }
+    p{
+        padding: 15px;
+    }
+    .log_sub{
+        width: 340px;
+        height: 45px;
+        margin-top: 60px;
+        color: white;
+        background-color: #9DD5BA;
+        border: none;
+        font-size: medium;
+        border-radius: 7px;
+    }
+    .check_join{
+        font-size: small;
+        color: #A0A0A0;
+        margin-right: 5px;
+    }
+    .join_a{
+        color: #6CA7FF;
+        text-decoration: underline;
+        font-size: 14px;
+    }
+</style>
+<body>
+<nav>
+  <a href="/"><img src="imgs/gosim_logo.png"></a>
+  <div class="log_box">
+    <button id="log_btn"><a href="/login">로그인</a></button>
+    <button id="join_btn"><a href="/join">회원가입</a></button>
+  </div>
+</nav>
+
+<h2>회원가입</h2>
+
+<form action="join_re" method="post" >
+  <div class="form_wrap">
+    <div class="form_div">
+      <span class="input_t">아 이 디</span> <input type="text" name="id" size="50"><p></p>
+      <span class="input_t">비밀번호</span><input type="password" name="pass" size="50"><p></p>
+      <span >비밀번호 재확인 &nbsp;&nbsp;&nbsp;</span><input type="password" name="ch_pass" size="50"><p></p>
+      <span class="input_t">이&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;름 </span><input type="text" name="name" size="50">
+    </div>
+  </div>
+  <button type="submit" class="log_sub">회원가입</button><p></p>
+</form>
+</body>
+</html>
