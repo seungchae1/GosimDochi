@@ -22,13 +22,13 @@ public class daoImpl implements dao{
 
     @Override
     public void insert_post(Post p) {
-        String sql = "insert into post_tbl values(post_seq.NEXTVAL,?,?,?,to_date(sysdate,'YYYY-MM-DD'),0)";
+        String sql = "insert into post_tbl values(post_seq.NEXTVAL,?,?,?,sysdate,0)";
         jdbc.update(sql, p.getUser_id(),p.getTitle(), p.getContent());
     }
 
     @Override
     public void insert_comm(Comm c) {
-        String sql = "insert into comment_tbl values(comm_seq.NEXTVAL,?,?,?,to_date(sysdate,'YYYY-MM-DD'))";
+        String sql = "insert into comment_tbl values(comm_seq.NEXTVAL,?,?,?,sysdate)";
         jdbc.update(sql, c.getPost_no(), c.getUser_id(), c.getContent());
     }
 
@@ -50,13 +50,13 @@ public class daoImpl implements dao{
 
     @Override
     public List<Post> select_post() {
-        String sql = "select * from post_tbl order by no";
+        String sql = "select * from post_tbl order by no desc";
         return jdbc.query(sql, new BeanPropertyRowMapper<>(Post.class));
     }
 
     @Override
     public List<Comm> select_comm(int no) {
-        String sql = "select * from comment_tbl where post_no ="+no+" order by no";
+        String sql = "select * from comment_tbl where post_no ="+no+" order by no desc";
         return jdbc.query(sql, new BeanPropertyRowMapper<>(Comm.class));
     }
 

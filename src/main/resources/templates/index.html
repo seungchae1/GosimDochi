@@ -102,7 +102,7 @@
         margin-top: 50px;
     }
     body{
-        margin-bottom:20px;
+        margin-bottom:100px;
     }
 
 
@@ -123,7 +123,7 @@
 <a href="/"> <img src="/imgs/banner.png" class="banner"></a>
 
 <div class="serach_box" style="float: right; margin-right: 15%; margin-top: 100px; margin-bottom: 20px;">
-    <form>
+    <form action="/search" method="post">
         <select style="height: 33px; float: left; margin-left: 10px;">
             <option value="">게시글+댓글</option>
             <option value="">게시글</option>
@@ -140,15 +140,13 @@
         <th>제목</th>
         <th>작성일</th>
         <th>조회수</th>
-        <th></th>
     </tr>
-    <tr class="td_tbl" th:each="p : ${p_list}" th:onclick="|location.href='@{'/v_post/'+${p.no}}'|">
-        <td th:text="${p.no}"></td>
-        <td th:text="${p.user_id}"></td>
-        <td th:text="${p.title}"></td>
-        <td th:text="${p.post_date}"></td>
-        <td th:text="${p.views}"></td>
-        <td><button style="background-color: white; border: 0;"><img src="/imgs/more_btn.png"></button></td>
+    <tr class="td_tbl" th:each="p : ${p_list}">
+        <td th:text="${p.no}"  th:onclick="|location.href='@{'/v_post/'+${p.no}}'|"></td>
+        <td th:text="${p.user_id}"  th:onclick="|location.href='@{'/v_post/'+${p.no}}'|"></td>
+        <td th:text="${p.title}"  th:onclick="|location.href='@{'/v_post/'+${p.no}}'|"></td>
+        <td th:text="${p.post_date}"   th:onclick="|location.href='@{'/v_post/'+${p.no}}'|"></td>
+        <td th:text="${p.views}"   th:onclick="|location.href='@{'/v_post/'+${p.no}}'|"></td>
     </tr>
 </table>
 <div th:if="${is_login}" class="w_post_div">
@@ -156,3 +154,5 @@
 </div>
 </body>
 </html>
+<script>
+</script>

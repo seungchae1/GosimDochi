@@ -88,8 +88,8 @@
 <div class="wrap_div" th:object="${post}">
   <h2 th:text="*{title}"></h2>
   <h4 th:text="*{user_id}"></h4>
-  <h4 style="text-align: right; color: #A4A4A4;" th:text="*{post_date}"><p>
-    <button><a href="#">신고하기</a></button></h4>
+  <h4 style="text-align: right; color: #A4A4A4;" th:text="*{post_date}"></h4>
+  <h4  style="text-align: right;"><button><a href="#">신고하기</a></button></h4>
   <div class="content_div" th:text="*{content}">
   </div>
   <h4>댓글</h4>
