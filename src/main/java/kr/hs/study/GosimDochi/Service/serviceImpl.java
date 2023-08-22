@@ -49,6 +49,11 @@ public class serviceImpl implements service {
     }
 
     @Override
+    public List<Post> select_search(String keyword, String sel) {
+        return d.select_search(keyword, sel);
+    }
+
+    @Override
     public List<Comm> select_comm(int no) {
         return d.select_comm(no);
     }

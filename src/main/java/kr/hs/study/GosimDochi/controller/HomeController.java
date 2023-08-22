@@ -109,4 +109,10 @@ public class HomeController {
         return "redirect:/";
     }
 
+    @PostMapping("/search")
+    public String search(@RequestParam("sel") String sel, @RequestParam("search") String keyword){
+        List<Post> posts = s.select_search(keyword, sel);
+        return "";
+    }
+
 }

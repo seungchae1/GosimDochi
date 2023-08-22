@@ -18,6 +18,7 @@ public interface service {
     public void update_report(int id);
     public List<Myuser> select_user();
     public List<Post> select_post();
+    public List<Post> select_search(String keyword, String sel);
     public List<Comm> select_comm(int no);
     public Post select_post_One(int id);
     public void update(Post p);

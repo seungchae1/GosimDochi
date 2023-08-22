@@ -55,6 +55,19 @@ public class daoImpl implements dao{
     }
 
     @Override
+    public List<Post> select_search(String keyword, String sel) {
+        switch (sel){
+            case "pc" :
+                break;
+            case "p":
+                break;
+            case "c" :
+                break;
+        }
+        return null;
+    }
+
+    @Override
     public List<Comm> select_comm(int no) {
         String sql = "select * from comment_tbl where post_no ="+no+" order by no desc";
         return jdbc.query(sql, new BeanPropertyRowMapper<>(Comm.class));

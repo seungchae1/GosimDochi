@@ -124,10 +124,10 @@
 
 <div class="serach_box" style="float: right; margin-right: 15%; margin-top: 100px; margin-bottom: 20px;">
     <form action="/search" method="post">
-        <select style="height: 33px; float: left; margin-left: 10px;">
-            <option value="">게시글+댓글</option>
-            <option value="">게시글</option>
-            <option value="">댓글</option>
+        <select style="height: 33px; float: left; margin-left: 10px;" name="sel">
+            <option value="pc">게시글+댓글</option>
+            <option value="p">게시글</option>
+            <option value="c">댓글</option>
         </select>
         <input type="text" name="seach" placeholder="검색어를 입력하세요." size="35" style="height: 28px; float: left; margin-left: 10px">
         <button type="submit" style="padding-top: 5px; float: left; margin-left: 10px"><img src="/imgs/search_btn.png"></button>
