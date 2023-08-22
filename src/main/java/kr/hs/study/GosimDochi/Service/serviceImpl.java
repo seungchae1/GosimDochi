@@ -49,8 +49,8 @@ public class serviceImpl implements service {
     }
 
     @Override
-    public List<Comm> select_comm() {
-        return d.select_comm();
+    public List<Comm> select_comm(int no) {
+        return d.select_comm(no);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package kr.hs.study.GosimDochi.controller;
 
+import kr.hs.study.GosimDochi.DTO.Comm;
 import kr.hs.study.GosimDochi.DTO.Myuser;
 import kr.hs.study.GosimDochi.DTO.Post;
 import kr.hs.study.GosimDochi.Service.service;
@@ -91,8 +92,21 @@ public class HomeController {
     @GetMapping("/v_post/{no}")
     public String v_post(@PathVariable("no") int no, Model model){
         Post p = s.select_post_One(no);
+        List<Comm> comms = s.select_comm(no);
+        model.addAttribute("post_no",no);
         model.addAttribute("post",p);
+        model.addAttribute("comm",comms);
         return "post_view";
+    }
+
+    @PostMapping("/write_comm")
+    public String w_comm(@RequestParam("post_no") int no, @RequestParam("comm_content") String comm_content){
+        Comm c = new Comm();
+        c.setUser_id(user.getId());
+        c.setContent(comm_content);
+        c.setPost_no(no);
+        s.insert_comm(c);
+        return "redirect:/";
     }
 
 }

@@ -28,7 +28,8 @@ public class daoImpl implements dao{
 
     @Override
     public void insert_comm(Comm c) {
-
+        String sql = "insert into comment_tbl values(comm_seq.NEXTVAL,?,?,?,to_date(sysdate,'YYYY-MM-DD'))";
+        jdbc.update(sql, c.getPost_no(), c.getUser_id(), c.getContent());
     }
 
     @Override
@@ -54,8 +55,9 @@ public class daoImpl implements dao{
     }
 
     @Override
-    public List<Comm> select_comm() {
-        return null;
+    public List<Comm> select_comm(int no) {
+        String sql = "select * from comment_tbl where post_no ="+no+" order by no";
+        return jdbc.query(sql, new BeanPropertyRowMapper<>(Comm.class));
     }
 
     @Override

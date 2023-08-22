@@ -65,7 +65,7 @@
         border: 2px solid #9DD5BA;
         border-radius: 7px;
         height: 50px;
-        width: 770px;
+        width: 90%;
         margin-right: 20px;
         padding: 15px;
     }
@@ -73,7 +73,7 @@
         border: 2px solid #8BDCB5;
         background-color: #8BDCB5;
         border-radius: 7px;
-        width: 82px;
+        width: 5%;
         height: 82px;
     }
 </style>
@@ -93,10 +93,14 @@
   <div class="content_div" th:text="*{content}">
   </div>
   <h4>댓글</h4>
-  <form action="" method="post">
-    <input type="text" name="" class="comm_content">
+  <form th:action="@{'/write_comm?post_no='+${post_no}}" method="post">
+    <input type="text" name="comm_content" class="comm_content">
     <input type="submit" value="게시" class="comm_sub">
   </form>
+  <div th:each ="c : ${comm}">
+    <h4 th:text="${c.user_id}"></h4>
+    <div><span th:text="${c.content}"></span></div>
+  </div>
 </div>
 
 </body>
