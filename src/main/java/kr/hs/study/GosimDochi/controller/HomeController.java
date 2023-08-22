@@ -110,9 +110,15 @@ public class HomeController {
     }
 
     @PostMapping("/search")
-    public String search(@RequestParam("sel") String sel, @RequestParam("search") String keyword){
+    public String search(@RequestParam("sel") String sel, @RequestParam("keyword") String keyword, Model model){
         List<Post> posts = s.select_search(keyword, sel);
-        return "";
+        if(user==null) model.addAttribute("not_login", true);
+        else {
+            model.addAttribute("is_login", true);
+            model.addAttribute("name", user.getName());
+        }
+        model.addAttribute("p_list",posts);
+        return "index";
     }
 
 }

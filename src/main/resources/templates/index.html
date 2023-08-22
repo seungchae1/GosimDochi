@@ -15,6 +15,7 @@
     body{
         margin: 0;
         padding: 0;
+        margin-bottom:100px;
     }
     nav{
         width: 100%;
@@ -23,7 +24,7 @@
         z-index: 10;
         position: absolute;
     }
-    nav>img{
+    nav>a>img{
         width: 130px;
         margin-left: 50px;
     }
@@ -101,15 +102,12 @@
         padding-left:15%;
         margin-top: 50px;
     }
-    body{
-        margin-bottom:100px;
-    }
 
 
 </style>
 <body>
 <nav>
-    <img src="imgs/gosim_logo.png">
+    <a href="/"><img src="imgs/gosim_logo.png"></a>
     <div class="log_box" th:if="${is_login}" >
         <span th:text="${name}"></span> 님 &nbsp <a th:href="@{/logout}">로그아웃</a>
     </div>
@@ -129,7 +127,7 @@
             <option value="p">게시글</option>
             <option value="c">댓글</option>
         </select>
-        <input type="text" name="seach" placeholder="검색어를 입력하세요." size="35" style="height: 28px; float: left; margin-left: 10px">
+        <input type="text" name="keyword" placeholder="검색어를 입력하세요." size="35" style="height: 28px; float: left; margin-left: 10px">
         <button type="submit" style="padding-top: 5px; float: left; margin-left: 10px"><img src="/imgs/search_btn.png"></button>
     </form>
 </div>

@@ -15,6 +15,7 @@
     body{
         margin: 0;
         padding: 0;
+        margin-bottom:100px;
     }
     nav{
         width: 100%;
@@ -30,28 +31,6 @@
         color: #000;
         text-decoration: none;
     }
-    .log_box{
-        float: right;
-        transform: translate(0, 15%);
-        margin-right: 50px;
-    }
-    #log_btn{
-        border: 2px solid #9DD5BA;
-        background-color: white;
-        border-radius: 7px;
-        width: 76px;
-        height: 35px;
-    }
-    #join_btn{
-        border: 2px solid #9DD5BA;
-        background-color: #9DD5BA;
-        border-radius: 7px;
-        width: 76px;
-        height: 35px;
-    }
-    #join_btn>a{
-        color: white;
-    }
     .wrap_div{
         padding: 100px 300px 0 300px;
     }
@@ -65,7 +44,7 @@
         border: 2px solid #9DD5BA;
         border-radius: 7px;
         height: 50px;
-        width: 90%;
+        width: 80%;
         margin-right: 20px;
         padding: 15px;
     }
@@ -73,17 +52,13 @@
         border: 2px solid #8BDCB5;
         background-color: #8BDCB5;
         border-radius: 7px;
-        width: 5%;
+        width: 82px;
         height: 82px;
     }
 </style>
 <body>
 <nav>
   <a href="/"><img src="imgs/gosim_logo.png"></a>
-  <div class="log_box">
-    <button id="log_btn"><a href="/login">로그인</a></button>
-    <button id="join_btn"><a href="/join">회원가입</a></button>
-  </div>
 </nav>
 <div class="wrap_div" th:object="${post}">
   <h2 th:text="*{title}"></h2>

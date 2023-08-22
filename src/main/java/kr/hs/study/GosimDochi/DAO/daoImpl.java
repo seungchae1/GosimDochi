@@ -56,15 +56,22 @@ public class daoImpl implements dao{
 
     @Override
     public List<Post> select_search(String keyword, String sel) {
+        String sql="";
         switch (sel){
             case "pc" :
+                sql = "select p.no, p.user_id, p.title, p.content, p.post_date, p.views from post_tbl p left outer join comment_tbl c on p.no = c.post_no" +
+                        " where title like '%"+keyword+"%' or p.content like '%"+keyword+"%' or c.content like '%"+keyword+"%'";
                 break;
             case "p":
+                sql = "select p.no, p.user_id, p.title, p.content, p.post_date, p.views from post_tbl p left outer join comment_tbl c on p.no = c.post_no" +
+                        " where title like '%"+keyword+"%' or p.content like '%"+keyword+"%'";
                 break;
             case "c" :
+                sql = "select p.no, p.user_id, p.title, p.content, p.post_date, p.views from post_tbl p left outer join comment_tbl c on p.no = c.post_no" +
+                        " where c.content like '%"+keyword+"%'";
                 break;
         }
-        return null;
+        return jdbc.query(sql, new BeanPropertyRowMapper<>(Post.class));
     }
 
     @Override
