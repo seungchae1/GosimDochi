@@ -64,8 +64,8 @@ public class serviceImpl implements service {
     }
 
     @Override
-    public void update(Post p) {
-        d.update(p);
+    public void update_v(int id) {
+        d.update_v(id);
     }
 
     @Override

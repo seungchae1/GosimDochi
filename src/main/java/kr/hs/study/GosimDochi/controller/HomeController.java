@@ -56,6 +56,12 @@ public class HomeController {
         return "redirect:/";
     }
 
+    @GetMapping("/logout")
+    public String logout(){
+        user=null;
+        return "redirect:/";
+    }
+
     @GetMapping("/join")
     public String join_form(){
         return "join";
@@ -96,6 +102,7 @@ public class HomeController {
         model.addAttribute("post_no",no);
         model.addAttribute("post",p);
         model.addAttribute("comm",comms);
+        s.update_v(no);
         return "post_view";
     }
 

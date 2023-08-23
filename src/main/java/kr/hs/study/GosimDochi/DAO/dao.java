@@ -21,7 +21,7 @@ public interface dao {
     public List<Post> select_search(String keyword, String sel);
     public List<Comm> select_comm(int no);
     public Post select_post_One(int id);
-    public void update(Post p);
+    public void update_v(int id);
     public void delete_user(String id);
     public void delete_post(int id);
     public void delete_comm(int id);

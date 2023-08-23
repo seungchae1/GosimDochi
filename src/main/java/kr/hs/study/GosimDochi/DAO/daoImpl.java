@@ -87,8 +87,9 @@ public class daoImpl implements dao{
     }
 
     @Override
-    public void update(Post p) {
-
+    public void update_v(int id) {
+        String sql = "update post_tbl set views=(select views from post_tbl where no="+id+")+1 where no="+id;
+        jdbc.update(sql);
     }
 
     @Override
