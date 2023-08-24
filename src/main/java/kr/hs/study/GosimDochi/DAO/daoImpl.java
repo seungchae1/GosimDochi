@@ -43,6 +43,8 @@ public class daoImpl implements dao{
         String sql2 = "select * from report_tbl where no="+id;
         Report report = jdbc.queryForObject(sql2,new BeanPropertyRowMapper<>(Report.class));
         if(report.getCount() >= 5){
+            String sql3 = "delete report_tbl where no="+id;
+            jdbc.update(sql3);
             delete_post(report.getNo());
             if(!(select_comm(report.getNo()).equals(null))){
                 delete_comm(report.getNo());
