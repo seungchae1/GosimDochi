@@ -4,7 +4,6 @@ import kr.hs.study.GosimDochi.DAO.dao;
 import kr.hs.study.GosimDochi.DTO.Comm;
 import kr.hs.study.GosimDochi.DTO.Myuser;
 import kr.hs.study.GosimDochi.DTO.Post;
-import kr.hs.study.GosimDochi.DTO.Report;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,13 +28,8 @@ public class serviceImpl implements service {
     }
 
     @Override
-    public void insert_report(Report r) {
-        d.insert_report(r);
-    }
-
-    @Override
-    public void update_report(int id) {
-        d.update_report(id);
+    public boolean update_report(int id) {
+        return d.update_report(id);
     }
 
     @Override
@@ -74,12 +68,12 @@ public class serviceImpl implements service {
     }
 
     @Override
-    public void delete_post(int id) {
-        d.delete_post(id);
+    public void delete_post(int id)  {
+         d.delete_post(id);
     }
 
     @Override
-    public void delete_comm(int id) {
+    public void delete_comm(int id)  {
         d.delete_comm(id);
     }
 }

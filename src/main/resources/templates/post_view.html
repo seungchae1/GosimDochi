@@ -19,7 +19,7 @@
     }
     nav{
         width: 100%;
-        background-image: url("imgs/nav.png");
+<!--        background-image: url("imgs/nav.png");-->
         background-size: contain;
         z-index: 10;
     }
@@ -64,7 +64,7 @@
   <h2 th:text="*{title}"></h2>
   <h4 th:text="*{user_id}"></h4>
   <h4 style="text-align: right; color: #A4A4A4;" th:text="*{post_date}"></h4>
-  <h4  style="text-align: right;"><button><a href="#">신고하기</a></button></h4>
+  <h4  style="text-align: right;"><button><a th:href="@{'/report/'+${post_no}}">신고하기</a></button></h4>
   <div class="content_div" th:text="*{content}">
   </div>
   <h4>댓글</h4>

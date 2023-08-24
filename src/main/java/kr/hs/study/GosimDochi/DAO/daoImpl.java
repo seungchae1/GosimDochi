@@ -24,6 +24,10 @@ public class daoImpl implements dao{
     public void insert_post(Post p) {
         String sql = "insert into post_tbl values(post_seq.NEXTVAL,?,?,?,sysdate,0)";
         jdbc.update(sql, p.getUser_id(),p.getTitle(), p.getContent());
+
+        String sql2 = "insert into report_tbl values(post_seq.CURRVAL,?,0)";
+        jdbc.update(sql2, p.getUser_id());
+
     }
 
     @Override
@@ -33,13 +37,19 @@ public class daoImpl implements dao{
     }
 
     @Override
-    public void insert_report(Report r) {
-
-    }
-
-    @Override
-    public void update_report(int id) {
-
+    public boolean update_report(int id) {
+        String sql = "update report_tbl set count=(select count from report_tbl where no="+id+")+1 where no="+id;
+        jdbc.update(sql);
+        String sql2 = "select * from report_tbl where no="+id;
+        Report report = jdbc.queryForObject(sql2,new BeanPropertyRowMapper<>(Report.class));
+        if(report.getCount() >= 5){
+            delete_post(report.getNo());
+            if(!(select_comm(report.getNo()).equals(null))){
+                delete_comm(report.getNo());
+            }
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -94,16 +104,20 @@ public class daoImpl implements dao{
 
     @Override
     public void delete_user(String id) {
-
+        String sql = "delete user_tbl where id="+id;
+        jdbc.update(sql);
     }
 
     @Override
     public void delete_post(int id) {
-
+        String sql = "delete post_tbl where no="+id;
+        jdbc.update(sql);
     }
 
     @Override
     public void delete_comm(int id) {
+        String sql = "delete comment_tbl where post_no="+id;
+        jdbc.update(sql);
 
     }
 }

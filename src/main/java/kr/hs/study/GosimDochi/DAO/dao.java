@@ -13,8 +13,7 @@ public interface dao {
     public void insert_user(Myuser u);
     public void insert_post(Post p);
     public void insert_comm(Comm c);
-    public void insert_report(Report r);
-    public void update_report(int id);
+    public boolean update_report(int id);
 
     public List<Myuser> select_user();
     public List<Post> select_post();
@@ -23,6 +22,6 @@ public interface dao {
     public Post select_post_One(int id);
     public void update_v(int id);
     public void delete_user(String id);
-    public void delete_post(int id);
-    public void delete_comm(int id);
+    public void delete_post(int id) ;
+    public void delete_comm(int id) ;
 }

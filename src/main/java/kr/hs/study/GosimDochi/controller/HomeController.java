@@ -128,4 +128,12 @@ public class HomeController {
         return "index";
     }
 
+    @GetMapping("/report/{no}")
+    public String report(@PathVariable("no") int no){
+        boolean isDelete = s.update_report(no);
+        if(isDelete){
+            return "redirect:/";
+        }
+        return "redirect:/v_post/"+no;
+    }
 }
