@@ -22,7 +22,7 @@ public class daoImpl implements dao{
 
     @Override
     public void insert_post(Post p) {
-        String sql = "insert into post_tbl values(post_seq.NEXTVAL,?,?,?,sysdate,0)";
+        String sql = "insert into post_tbl(user_id, title, content, post_date,views) values(?,?,?,sysdate,0)";
         jdbc.update(sql, p.getUser_id(),p.getTitle(), p.getContent());
 
         String sql2 = "insert into report_tbl values(post_seq.CURRVAL,?,0)";
@@ -32,7 +32,7 @@ public class daoImpl implements dao{
 
     @Override
     public void insert_comm(Comm c) {
-        String sql = "insert into comment_tbl values(comm_seq.NEXTVAL,?,?,?,sysdate)";
+        String sql = "insert into comment_tbl(post_no, user_id, content, comm_date) values(?,?,?,sysdate)";
         jdbc.update(sql, c.getPost_no(), c.getUser_id(), c.getContent());
     }
 
